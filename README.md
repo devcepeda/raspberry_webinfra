@@ -59,3 +59,14 @@ Designed for startups, developers, and personal projects seeking privacy, stabil
 ```bash
 git clone https://github.com/devcepeda/raspberry_webinfra.git
 cd raspberry_webinfra
+```
+
+```bash
+chmod +x install.sh
+
+sudo ./install.sh
+```
+
+```Network Architecture Overview
+Client → Cloudflare Edge → Encrypted Tunnel → Raspberry Pi → Apache
+```
