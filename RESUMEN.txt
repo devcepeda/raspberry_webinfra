@@ -1,0 +1,2 @@
+Proyecto base web con estructura modular y archivos minimos.
+Sin contenido de negocio, listo para personalizacion.

@@ -1,0 +1,28 @@
+:root {
+  --bg: #f4f4f4;
+  --text: #1f1f1f;
+  --accent: #0f766e;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  margin-right: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+main {
+  padding: 1.25rem;
+}

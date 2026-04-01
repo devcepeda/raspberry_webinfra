@@ -1,0 +1,9 @@
+REQUISITOS MINIMOS
+- Apache2
+- PHP 8+
+
+PASOS
+1) Clonar repositorio.
+2) Copiar carpeta a /var/www/html si aplica.
+3) Habilitar rewrite en Apache.
+4) Reiniciar Apache.

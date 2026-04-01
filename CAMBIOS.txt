@@ -1,0 +1,4 @@
+[2026-04-01]
+- Se creo estructura base inspirada en jdchars.
+- Se agregaron placeholders para paginas, admin y API.
+- Se documento alcance y limitaciones iniciales.

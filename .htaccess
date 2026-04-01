@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Redirect to HTTPS when available behind reverse proxy
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Basic clean URLs: /home -> /pages/home.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+# Protect sensitive folders
+RewriteRule ^config/ - [F,L]

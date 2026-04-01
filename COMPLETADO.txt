@@ -1,0 +1,3 @@
+ESTADO: BASE CREADA
+- Estructura inicial lista.
+- Archivos minimos listos para empezar desarrollo.

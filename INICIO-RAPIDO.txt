@@ -1,0 +1,4 @@
+1) Abrir carpeta del proyecto.
+2) Editar pages/home.php para contenido inicial.
+3) Configurar config/database.php con datos reales.
+4) Probar en navegador: /raspberry_webinfra/
