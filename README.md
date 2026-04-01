@@ -1,72 +1,80 @@
-# RASPBERRY WEB INFRASTRUCTURE
+# Raspberry Web Infra - Base Estructural
 
-Self-hosted, low-cost, and energy-efficient web infrastructure built on a Raspberry Pi 4 Model B using Apache and Cloudflare Tunnel.
+Plantilla base inspirada en la organizacion de `jdchars`, preparada para crecer sin contenido final y con despliegue automatizado desde GitHub.
 
-Designed for startups, developers, and personal projects seeking privacy, stability, and full deployment control without relying on traditional third-party hosting providers.
+## Objetivo
 
----
+- Tener una estructura clara para sitio web + panel admin + API.
+- Mantener archivos basicos, sin datos de negocio.
+- Dejar limitaciones y reglas definidas desde el inicio.
 
-## ⚙️ Key Features
+## Estructura Inicial
 
-- 🧠 **Low-power infrastructure**  
-  ARM-based architecture for minimal energy consumption.
+- `index.php` router principal minimo.
+- `pages/` vistas publicas base.
+- `includes/` layout y helpers.
+- `admin/` acceso y panel base.
+- `api/appointments/` endpoints placeholder.
+- `config/` configuraciones y SQL inicial.
+- `assets/css/` y `js/` recursos del frontend.
 
-- 🔒 **Secure public exposure**  
-  Encrypted traffic via Cloudflare Tunnel — no open ports required.
+## Flujo Basico
 
-- 🧰 **Minimalist stack**  
-  Raspberry Pi OS Lite + Apache2.
+1. Editar vistas en `pages/`.
+2. Agregar logica comun en `includes/functions.php`.
+3. Definir conexion real en `config/database.php`.
+4. Implementar endpoints reales en `api/appointments/`.
 
-- 🌐 **Self-hosted independence**  
-  Full ownership of data, uptime, and configuration.
+## Estado
 
-- 🧱 **Scalable base architecture**  
-  Expandable to:
-  - Internal services
-  - Private APIs
-  - Local databases
-  - IoT integrations
+- Estructura creada.
+- Archivos base creados.
+- Sin informacion de negocio cargada.
+- Ramas `develop` y `production` listas para flujo seguro.
 
----
+## Deploy Automatizado
 
-## 🧠 Project Goals
+- Webhook listo en `deploy/webhook.php`.
+- Script seguro en `deploy/deploy.sh` con backup y rollback.
+- Guia de configuracion en `deploy/README.md`.
 
-- Demonstrate efficient infrastructure design using open-source tools.
-- Provide a functional low-cost hosting alternative.
-- Strengthen skills in:
-  - Linux system administration
-  - Networking
-  - Web server configuration
-  - Secure tunneling
-- Serve as a reference architecture for small businesses or learning labs.
+### Configuracion en GitHub
 
----
+1. Ir al repositorio: `https://github.com/devcepeda/raspberry_webinfra`.
+2. Entrar a `Settings -> Webhooks -> Add webhook`.
+3. Configurar:
+	- Payload URL: `https://TU_DOMINIO/raspberry_webinfra/deploy/webhook.php`
+	- Content type: `application/json`
+	- Secret: el mismo `DEPLOY_WEBHOOK_SECRET` de `deploy/.env`
+	- Eventos: `Just the push event`
+4. Guardar y probar un push a `production`.
 
-## 🛠️ Technology Stack
+### Flujo recomendado de trabajo
 
-- Raspberry Pi OS Lite (Debian-based)
-- Apache2
-- Cloudflare Tunnel
-- SSH
-- Git
+1. Crear cambios en `develop`.
+2. Validar funcionalidad.
+3. Merge de `develop` a `production`.
+4. Push a `production` para desplegar automaticamente.
 
----
+### Estrategia de ramas
 
-## 📦 Installation
+- `production`: rama estable para despliegue.
+- `develop`: rama de integracion y pruebas.
+- Features desde `develop` y merge a `production` al validar.
 
-### 1️⃣ Clone the repository
+## Comandos Git Rapidos
 
 ```bash
-git clone https://github.com/devcepeda/raspberry_webinfra.git
-cd raspberry_webinfra
-```
+# Trabajar en desarrollo
+git checkout develop
 
-```bash
-chmod +x install.sh
+# Subir cambios de desarrollo
+git add .
+git commit -m "feat: cambios en desarrollo"
+git push origin develop
 
-sudo ./install.sh
-```
-
-```Network Architecture Overview
-Client → Cloudflare Edge → Encrypted Tunnel → Raspberry Pi → Apache
+# Pasar a produccion
+git checkout production
+git merge --no-ff develop
+git push origin production
 ```
