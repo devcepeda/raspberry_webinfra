@@ -6,7 +6,6 @@ Self-hosted, low-cost, and energy-efficient web infrastructure built on Raspberr
 
 - Tener una estructura clara para sitio web + panel admin + API.
 - Mantener archivos basicos, sin datos de negocio.
-- Dejar limitaciones y reglas definidas desde el inicio.
 
 ## Estructura Inicial
 
@@ -24,13 +23,6 @@ Self-hosted, low-cost, and energy-efficient web infrastructure built on Raspberr
 2. Agregar logica comun en `includes/functions.php`.
 3. Definir conexion real en `config/database.php`.
 4. Implementar endpoints reales en `api/appointments/`.
-
-## Estado
-
-- Estructura creada.
-- Archivos base creados.
-- Sin informacion de negocio cargada.
-- Ramas `develop` y `production` listas para flujo seguro.
 
 ## Deploy Automatizado
 
